@@ -125,6 +125,11 @@ func GetTLSConfig(
 
 	t := &tls.Config{
 		InsecureSkipVerify: InsecureSkipVerify,
+		CurvePreferences: []tls.CurveID{
+			tls.CurveP256,
+			tls.CurveP384,
+			tls.CurveP521,
+		},
 	}
 
 	if SSLCA != "" {
